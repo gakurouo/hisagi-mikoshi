@@ -137,7 +137,7 @@
     #top .inner {
       max-width: 720px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 26px;
       position: relative;
       z-index: 1;
     }
@@ -220,11 +220,23 @@
 
     .btn-secondary:hover { background: rgba(255,255,255,0.18); }
 
-    /* ── 共通inner ── */
+    /* ── 共通inner（ヘッダーなど） ── */
     .inner {
       max-width: 720px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 20px;
+    }
+
+    /* ── コンテンツ2層構造 ──
+     * .section-outer  : セクション背景を画面幅いっぱいに
+     * .section-inner  : 本文・カードを読みやすい幅に収める
+     */
+    .section-inner {
+      width: 100%;
+      max-width: 36rem;
+      margin: 0 auto;
+      padding: 52px 26px;
+      box-sizing: border-box;
     }
 
     /* ── セクション共通 ── */
@@ -316,7 +328,7 @@
     .anshin-card {
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--radius);
+      border-radius: 16px;
       padding: 14px 16px;
       display: flex;
       align-items: center;
@@ -407,7 +419,7 @@
     .items-card {
       background: var(--warm-white);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-radius: 16px;
       padding: 18px 20px;
     }
 
@@ -478,8 +490,8 @@
       background: var(--warm-white);
       border: 1px solid var(--border);
       border-left: 4px solid var(--red);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      padding: 14px 16px;
+      border-radius: 0 16px 16px 0;
+      padding: 16px 18px;
     }
 
     .happi-step h4 {
@@ -509,7 +521,7 @@
     .faq-item {
       background: #fff;
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-radius: 16px;
       overflow: hidden;
     }
 
@@ -780,7 +792,7 @@
 
 <!-- ── 安心ポイント ── -->
 <section class="anshin-section">
-  <div class="inner section-block">
+  <div class="section-inner">
     <p class="section-label" style="background:rgba(192,57,43,0.25);color:#f4a099;">安心ポイント</p>
     <h2 style="color:#fff;">初参加でも安心なポイント</h2>
     <div class="anshin-grid">
@@ -795,7 +807,7 @@
 
 <!-- ── 当日の流れ ── -->
 <section class="white-section">
-  <div class="inner section-block">
+  <div class="section-inner">
     <p class="section-label">当日の流れ</p>
     <h2>当日のざっくり流れ</h2>
     <p style="font-size:14px;color:var(--ink-light);">細かいことを覚えなくても大丈夫です。何時ごろ行って、どんな流れなのかをざっくり把握すれば参加しやすくなります。</p>
@@ -832,7 +844,7 @@
 
 <!-- ── 初参加ガイド ── -->
 <section id="guide">
-  <div class="inner section-block">
+  <div class="section-inner">
     <p class="section-label">初参加ガイド</p>
     <h2>これを見れば、初参加でもだいたい大丈夫です</h2>
     <p style="font-size:14px;color:var(--ink-light);">「何を着ればいいの？」「担ぎ方が分からない」という不安を、順番に解消していきます。</p>
@@ -841,7 +853,7 @@
 
 <!-- ── 1. 当日の流れ Q&A ── -->
 <section class="white-section">
-  <div class="inner section-block">
+  <div class="section-inner">
     <h3><span class="num">1</span>当日の流れ</h3>
     <p style="font-size:14px;color:var(--ink-light);">「いつ、どこに行けばいいか」が分かるだけでも安心できます。</p>
 
@@ -858,7 +870,7 @@
 
 <!-- ── 2. 持ち物・服装 ── -->
 <section>
-  <div class="inner section-block">
+  <div class="section-inner">
     <h3><span class="num">2</span>持ち物・服装</h3>
     <p style="font-size:14px;color:var(--ink-light);">最初から完璧に揃える必要はありません。「とりあえずこれがあれば大丈夫」という基準で準備してください。</p>
     <div class="items-grid">
@@ -894,7 +906,7 @@
 
 <!-- ── 3. 半纏の着方 ── -->
 <section class="white-section">
-  <div class="inner section-block">
+  <div class="section-inner">
     <h3><span class="num">3</span>半纏の着方</h3>
     <p style="font-size:14px;color:var(--ink-light);">半纏を借りられる場合は、きれいに着られると見た目もよく、動きやすさも増します。</p>
     <div class="happi-steps">
@@ -917,7 +929,7 @@
 
 <!-- ── 4. 格好を揃えたい方へ ── -->
 <section>
-  <div class="inner section-block">
+  <div class="section-inner">
     <h3><span class="num">4</span>神輿の格好を揃えたい方へ</h3>
     <p style="font-size:14px;color:var(--ink-light);">初参加は手持ちの服でも大丈夫ですが、「せっかくなら揃えたい」という方のために。</p>
     <div class="items-card" style="margin-top:16px;">
@@ -941,7 +953,7 @@
 
 <!-- ── FAQ ── -->
 <section id="faq" class="faq-section">
-  <div class="inner section-block">
+  <div class="section-inner">
     <p class="section-label">よくある質問</p>
     <h2>初参加FAQ</h2>
     <p style="font-size:14px;color:var(--ink-light);">初めて神輿を担ぐ方から、よくいただく質問をまとめました。</p>
@@ -1050,7 +1062,7 @@
 
 <!-- ── JOIN ── -->
 <section id="join" class="join-section">
-  <div class="inner section-block">
+  <div class="section-inner">
     <p class="section-label" style="background:rgba(192,57,43,0.25);color:#f4a099;">参加する</p>
     <h2 style="color:#fff;">参加の連絡方法</h2>
     <p style="font-size:14px;color:rgba(255,255,255,0.65);">参加に興味がある方は、まずはInstagramのDMからお気軽にご連絡ください。「初参加です」と一言いただければ、当日の流れや服装についてご案内します。</p>
@@ -1081,7 +1093,7 @@
 
 <!-- ── ABOUT ── -->
 <section>
-  <div class="inner section-block">
+  <div class="section-inner">
     <p class="section-label">神輿会について</p>
     <h2>久木神社神輿会について</h2>
     <div class="about-box">
