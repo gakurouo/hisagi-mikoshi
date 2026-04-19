@@ -10,20 +10,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --ink:        #1a1410;
-      --ink-light:  #4a3f35;
-      --parchment:  #faf6f0;
-      --warm-white: #fffdf9;
-      --red:        #c0392b;
-      --red-dark:   #96251e;
-      --red-light:  #f5e6e4;
-      --gold:       #b8900a;
-      --gold-light: #f7f0dc;
-      --border:     #d9cfc4;
-      --shadow:     rgba(26,20,16,0.10);
-      --radius:     12px;
-      --serif:      'Noto Serif JP', serif;
-      --sans:       'Noto Sans JP', sans-serif;
+      /* ── カラーパレット（手ぬぐいの青ベース） ── */
+      --blue:        #3f8ea8;   /* メイン：手ぬぐいの青 */
+      --blue-dark:   #2d6e87;   /* ホバー・強調 */
+      --blue-light:  #e8f4f8;   /* 青の淡い背景 */
+      --blue-mid:    #5aa3bb;   /* 中間トーン */
+
+      --ink:         #2b2b2b;   /* テキスト：やわらかい黒 */
+      --ink-light:   #5a5a5a;   /* サブテキスト */
+      --parchment:   #faf6f0;   /* ベース：和紙 */
+      --warm-white:  #fffdf9;   /* カード背景 */
+
+      --red:         #c0392b;   /* アクセント赤（控えめに使う） */
+      --red-dark:    #96251e;
+      --red-light:   #faeae8;
+
+      --gold:        #b8900a;
+      --gold-light:  #f7f0dc;
+
+      --border:      #d4e8ef;   /* 青みがかった枠線 */
+      --shadow:      rgba(63,142,168,0.10);
+      --radius:      14px;
+      --serif:       'Noto Serif JP', serif;
+      --sans:        'Noto Sans JP', sans-serif;
+
+      /* 旧 --ink 相当（ダーク背景用） */
+      --dark-bg:     #1e3a45;   /* 濃い青-墨 */
+      --dark-bg2:    #264d5e;   /* 少し明るいダーク */
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,14 +51,14 @@
       font-size: 15px;
     }
 
-    /* ── 和柄背景テクスチャ ── */
+    /* ── 背景テクスチャ（青の淡いグラデ） ── */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       background-image:
-        radial-gradient(circle at 20% 20%, rgba(192,57,43,0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(184,144,10,0.04) 0%, transparent 50%);
+        radial-gradient(circle at 15% 15%, rgba(63,142,168,0.05) 0%, transparent 55%),
+        radial-gradient(circle at 85% 85%, rgba(63,142,168,0.04) 0%, transparent 55%);
       pointer-events: none;
       z-index: 0;
     }
@@ -55,9 +68,9 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--ink);
+      background: var(--blue);
       color: #fff;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+      box-shadow: 0 2px 12px rgba(63,142,168,0.3);
     }
 
     header .inner {
@@ -77,17 +90,17 @@
       letter-spacing: 0.05em;
       color: #fff;
       white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .site-name span {
-      display: inline-block;
-      width: 6px; height: 6px;
-      background: var(--red);
-      border-radius: 50%;
-      margin-right: 8px;
-      vertical-align: middle;
-      position: relative;
-      top: -1px;
+    .site-name img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
     }
 
     nav ul {
@@ -97,7 +110,7 @@
     }
 
     nav a {
-      color: rgba(255,255,255,0.75);
+      color: rgba(255,255,255,0.85);
       text-decoration: none;
       font-size: 12px;
       padding: 6px 8px;
@@ -108,30 +121,33 @@
 
     nav a:hover {
       color: #fff;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.15);
     }
 
     /* ── HERO ── */
     #top {
       position: relative;
-      background: var(--ink);
+      background: linear-gradient(160deg, var(--dark-bg) 0%, #1a3340 100%);
       color: #fff;
       overflow: hidden;
       padding: 64px 0 72px;
     }
 
+    /* 紋を薄く背景に */
     #top::before {
-      content: '神';
+      content: '';
       position: absolute;
-      right: -24px;
+      right: -40px;
       top: 50%;
       transform: translateY(-50%);
-      font-family: var(--serif);
-      font-size: clamp(160px, 40vw, 280px);
-      color: rgba(255,255,255,0.04);
-      line-height: 1;
+      width: clamp(200px, 55vw, 340px);
+      height: clamp(200px, 55vw, 340px);
+      background-image: url('img/crest.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.07;
       pointer-events: none;
-      user-select: none;
     }
 
     #top .inner {
@@ -144,13 +160,13 @@
 
     .hero-label {
       display: inline-block;
-      background: var(--red);
+      background: var(--blue-mid);
       color: #fff;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.12em;
       padding: 4px 12px;
-      border-radius: 2px;
+      border-radius: 20px;
       margin-bottom: 20px;
     }
 
@@ -164,7 +180,7 @@
     }
 
     #top h1 em {
-      color: #e8c89a;
+      color: #8fd4e8;
       font-style: normal;
     }
 
@@ -187,7 +203,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      background: var(--red);
+      background: var(--blue);
       color: #fff;
       text-decoration: none;
       font-weight: 700;
@@ -196,29 +212,29 @@
       border-radius: var(--radius);
       letter-spacing: 0.05em;
       transition: background 0.2s, transform 0.15s;
-      box-shadow: 0 4px 16px rgba(192,57,43,0.4);
+      box-shadow: 0 4px 16px rgba(63,142,168,0.4);
     }
 
-    .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
+    .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
 
     .btn-secondary {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      background: rgba(255,255,255,0.1);
-      color: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.92);
       text-decoration: none;
       font-weight: 500;
       font-size: 14px;
       padding: 13px 24px;
       border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.28);
       letter-spacing: 0.03em;
       transition: background 0.2s;
     }
 
-    .btn-secondary:hover { background: rgba(255,255,255,0.18); }
+    .btn-secondary:hover { background: rgba(255,255,255,0.22); }
 
     /* ── 共通inner（ヘッダーなど） ── */
     .inner {
@@ -258,12 +274,12 @@
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.15em;
-      color: var(--red);
+      color: var(--blue-dark);
       text-transform: uppercase;
       margin-bottom: 12px;
-      background: var(--red-light);
+      background: var(--blue-light);
       padding: 3px 10px;
-      border-radius: 2px;
+      border-radius: 20px;
     }
 
     h2 {
@@ -292,7 +308,7 @@
       align-items: center;
       justify-content: center;
       width: 28px; height: 28px;
-      background: var(--red);
+      background: var(--blue);
       color: #fff;
       font-family: var(--sans);
       font-size: 13px;
@@ -312,9 +328,59 @@
     p { margin-bottom: 12px; }
     p:last-child { margin-bottom: 0; }
 
+    /* ── 開催日 ── */
+    .event-date-section {
+      background: linear-gradient(160deg, var(--dark-bg) 0%, #1a3340 100%);
+    }
+
+    .event-date-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(143,212,232,0.3);
+      border-radius: 18px;
+      padding: 28px 20px;
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    .event-date-label {
+      display: inline-block;
+      background: var(--blue-mid);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      padding: 3px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .event-date-main {
+      font-family: var(--serif);
+      font-size: clamp(22px, 6vw, 32px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.4;
+      letter-spacing: 0.03em;
+      margin-bottom: 6px;
+    }
+
+    .event-date-time {
+      font-size: 16px;
+      font-weight: 600;
+      color: #8fd4e8;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .event-date-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      margin: 0;
+    }
+
     /* ── 安心ポイント ── */
     .anshin-section {
-      background: var(--ink);
+      background: var(--blue);
       color: #fff;
     }
 
@@ -326,8 +392,8 @@
     }
 
     .anshin-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
       border-radius: 16px;
       padding: 14px 16px;
       display: flex;
@@ -340,7 +406,7 @@
 
     .anshin-card .check {
       width: 22px; height: 22px;
-      background: var(--red);
+      background: rgba(255,255,255,0.25);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -382,8 +448,8 @@
       left: 10px;
       top: 0;
       width: 22px; height: 22px;
-      background: var(--ink);
-      border: 3px solid var(--red);
+      background: #fff;
+      border: 3px solid var(--blue);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -391,7 +457,7 @@
     }
 
     .timeline-dot span {
-      color: #fff;
+      color: var(--blue-dark);
       font-size: 9px;
       font-weight: 700;
     }
@@ -449,34 +515,34 @@
 
     .items-card li::before {
       content: '・';
-      color: var(--red);
+      color: var(--blue);
       flex-shrink: 0;
       font-weight: 700;
     }
 
     .badge-must {
       display: inline-block;
-      background: var(--red);
+      background: var(--blue);
       color: #fff;
       font-size: 10px;
       font-weight: 700;
       padding: 2px 7px;
-      border-radius: 3px;
+      border-radius: 20px;
       vertical-align: middle;
       letter-spacing: 0.05em;
     }
 
     .badge-nice {
       display: inline-block;
-      background: var(--gold-light);
-      color: var(--gold);
+      background: var(--blue-light);
+      color: var(--blue-dark);
       font-size: 10px;
       font-weight: 700;
       padding: 2px 7px;
-      border-radius: 3px;
+      border-radius: 20px;
       vertical-align: middle;
       letter-spacing: 0.05em;
-      border: 1px solid #e8d490;
+      border: 1px solid var(--border);
     }
 
     /* ── 半纏 ── */
@@ -489,7 +555,7 @@
     .happi-step {
       background: var(--warm-white);
       border: 1px solid var(--border);
-      border-left: 4px solid var(--red);
+      border-left: 4px solid var(--blue);
       border-radius: 0 16px 16px 0;
       padding: 16px 18px;
     }
@@ -563,7 +629,7 @@
 
     /* ── FAQ ── */
     .faq-section {
-      background: var(--warm-white);
+      background: var(--blue-light);
     }
 
     .faq-list {
@@ -605,11 +671,11 @@
       align-items: center;
       justify-content: center;
       min-width: 24px; height: 24px;
-      background: var(--red);
+      background: var(--blue);
       color: #fff;
       font-size: 11px;
       font-weight: 700;
-      border-radius: 4px;
+      border-radius: 6px;
       flex-shrink: 0;
       margin-top: 1px;
     }
@@ -641,7 +707,7 @@
 
     /* ── JOIN ── */
     .join-section {
-      background: var(--ink);
+      background: linear-gradient(160deg, var(--dark-bg) 0%, var(--dark-bg2) 100%);
       color: #fff;
     }
 
@@ -653,8 +719,8 @@
     }
 
     .join-step {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(143,212,232,0.2);
       border-radius: var(--radius);
       padding: 18px 20px;
       display: flex;
@@ -667,7 +733,7 @@
       align-items: center;
       justify-content: center;
       min-width: 28px; height: 28px;
-      background: var(--red);
+      background: var(--blue-mid);
       color: #fff;
       font-size: 13px;
       font-weight: 700;
@@ -706,9 +772,9 @@
 
     /* ── ABOUT ── */
     .about-box {
-      background: var(--gold-light);
-      border: 1px solid #e8d490;
-      border-left: 5px solid var(--gold);
+      background: var(--blue-light);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--blue);
       border-radius: 0 var(--radius) var(--radius) 0;
       padding: 20px 20px;
       margin-top: 20px;
@@ -719,7 +785,7 @@
 
     /* ── FOOTER ── */
     footer {
-      background: #111;
+      background: var(--dark-bg);
       color: rgba(255,255,255,0.55);
       padding: 40px 0 32px;
     }
@@ -783,12 +849,12 @@
 
     /* ── note ── */
     .note-box {
-      background: var(--red-light);
-      border: 1px solid #e8c0ba;
+      background: var(--blue-light);
+      border: 1px solid var(--border);
       border-radius: 8px;
       padding: 12px 16px;
       font-size: 12px;
-      color: #7a2e28;
+      color: var(--blue-dark);
       margin-top: 16px;
     }
 
@@ -817,7 +883,10 @@
 <!-- ── HEADER ── -->
 <header id="page-top">
   <div class="inner">
-    <p class="site-name"><span></span>久木神社神輿会</p>
+    <p class="site-name">
+      <img src="img/crest.png" alt="" aria-hidden="true" />
+      久木神社神輿会
+    </p>
     <nav aria-label="主要メニュー">
       <ul>
         <li><a href="#guide">ガイド</a></li>
@@ -845,10 +914,22 @@
   </div>
 </section>
 
+<!-- ── 開催日 ── -->
+<section class="event-date-section">
+  <div class="section-inner" style="padding-top:36px;padding-bottom:36px;">
+    <div class="event-date-card">
+      <p class="event-date-label">今年の開催日</p>
+      <p class="event-date-main">2026年7月26日（日）</p>
+      <p class="event-date-time">16:00 〜 21:00</p>
+      <p class="event-date-note">初参加の方も歓迎しています</p>
+    </div>
+  </div>
+</section>
+
 <!-- ── 安心ポイント ── -->
 <section class="anshin-section">
   <div class="section-inner">
-    <p class="section-label" style="background:rgba(192,57,43,0.25);color:#f4a099;">安心ポイント</p>
+    <p class="section-label" style="background:rgba(255,255,255,0.2);color:#fff;">安心ポイント</p>
     <h2 style="color:#fff;">初参加でも安心なポイント</h2>
     <div class="anshin-grid">
       <div class="anshin-card"><span class="check">✓</span>練習なしでOK</div>
@@ -953,7 +1034,7 @@
         <ul>
           <li>ポシェットや小さいバッグ</li>
           <li>タオル</li>
-          <li>予備の飲み物（途中の休憩所で配布される飲み物をお飲みいただけます。）</li>
+          <li>予備の飲み物（途中の休憩所で配布される飲み物をお飲みいただけます）</li>
         </ul>
       </div>
     </div>
@@ -969,9 +1050,9 @@
     <div class="items-card" style="margin-top:16px;">
       <h4>基本の装い</h4>
       <ul>
-        <li>上半身：鯉口シャツ（なければ白Tシャツまたは久木神社Tシャツで大丈夫）</li>
-        <li>下半身：股引（なければ動きやすい白っぽいパンツで大丈夫）</li>
-        <li>足元：足袋（なければサンダルで大丈夫）</li>
+        <li>上半身：鯉口シャツ（白Tシャツまたは久木Tシャツでも大丈夫）</li>
+        <li>下半身：股引（動きやすい白っぽいパンツでも大丈夫）</li>
+        <li>足元：足袋（サンダルでも大丈夫）</li>
       </ul>
       <div class="clothes-photo">
         <img
@@ -1003,7 +1084,7 @@
 <section class="white-section">
   <div class="section-inner">
     <h3><span class="num">4</span>半纏の着方</h3>
-    <p style="font-size:14px;color:var(--ink-light);">半纏と帯の貸し出しを行っています。半纏は、きれいに着られると見た目もよく、動きやすさも増します。難しく考えなくて大丈夫ですが、以下のポイントだけ押さえておくと安心です。</p>
+    <p style="font-size:14px;color:var(--ink-light);">半纏と帯の貸し出しを行っています。<br />半纏は、きれいに着られると見た目もよく、動きやすさも増します。難しく考えなくて大丈夫ですが、以下のポイントだけ押さえておくと安心です。</p>
     <div class="happi-steps">
       <div class="happi-step">
         <h4>前の合わせ方</h4>
@@ -1151,23 +1232,23 @@
 <!-- ── JOIN ── -->
 <section id="join" class="join-section">
   <div class="section-inner">
-    <p class="section-label" style="background:rgba(192,57,43,0.25);color:#f4a099;">参加する</p>
+    <p class="section-label" style="background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);">参加する</p>
     <h2 style="color:#fff;">参加の連絡方法</h2>
-    <p style="font-size:14px;color:rgba(255,255,255,0.65);">参加に興味がある方は、まずはInstagramのDMからお気軽にご連絡ください。「初参加です」と一言いただければ、当日の流れや服装についてご案内します。</p>
+    <p style="font-size:14px;color:rgba(255,255,255,0.65);">初参加の方の多くが、Instagramのメッセージからご連絡いただいています。「初参加です」と一言いただければ、当日の流れや服装についてご案内します。</p>
 
     <div class="join-steps">
       <div class="join-step">
         <span class="join-step-num">1</span>
         <div class="join-step-body">
-          <div class="join-step-title">InstagramのDMで連絡する</div>
-          <p>質問だけでも大歓迎です。「初参加です」と送っていただければ、案内をお返しします。</p>
+          <div class="join-step-title">Instagramのメッセージで連絡する</div>
+          <p>「初参加です」と送っていただければ、案内をお返しします。<br />質問だけでも大歓迎です。</p>
         </div>
       </div>
       <div class="join-step">
         <span class="join-step-num">2</span>
         <div class="join-step-body">
           <div class="join-step-title">当日そのまま来る</div>
-          <p>年によって対応が異なりますが、当日参加OKの年はそのまま神社に来ていただいても大丈夫です。</p>
+          <p>当日そのまま久木神社に来ていただいても大丈夫です。</p>
         </div>
       </div>
     </div>
