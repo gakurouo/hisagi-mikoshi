@@ -37,6 +37,13 @@
 
     html { scroll-behavior: smooth; }
 
+    /* 各セクションだけヘッダー分ずらす */
+    #guide,
+    #faq,
+    #join {
+      scroll-margin-top: 80px;
+    }
+
     body {
       font-family: var(--sans);
       background: var(--parchment);
@@ -919,8 +926,11 @@
 </head>
 <body>
 
+<!-- ページ最上部のアンカー -->
+<div id="page-top"></div>
+
 <!-- ── HEADER ── -->
-<header id="page-top">
+<header>
   <div class="inner">
     <p class="site-name">
       <img src="img/logo.png" alt="" aria-hidden="true" />
