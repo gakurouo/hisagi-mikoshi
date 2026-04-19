@@ -22,11 +22,6 @@
       --warm-white:  #fffdf9;   /* カード背景 */
 
       --red:         #c0392b;   /* アクセント赤（控えめに使う） */
-      --red-dark:    #96251e;
-      --red-light:   #faeae8;
-
-      --gold:        #b8900a;
-      --gold-light:  #f7f0dc;
 
       --border:      #d4e8ef;   /* 青みがかった枠線 */
       --shadow:      rgba(63,142,168,0.10);
@@ -34,8 +29,7 @@
       --serif:       'Noto Serif JP', serif;
       --sans:        'Noto Sans JP', sans-serif;
 
-      /* 旧 --ink 相当（ダーク背景用） */
-      --dark-bg:     #1e3a45;   /* 濃い青-墨 */
+      --dark-bg:     #1e3a45;   /* 濃い青-墨（ヒーロー・フッター等） */
       --dark-bg2:    #264d5e;   /* 少し明るいダーク */
     }
 
@@ -127,35 +121,41 @@
     /* ── HERO ── */
     #top {
       position: relative;
-      background: linear-gradient(160deg, var(--dark-bg) 0%, #1a3340 100%);
+      background: var(--dark-bg);
       color: #fff;
       overflow: hidden;
       padding: 64px 0 72px;
     }
 
-    /* 紋を薄く背景に */
+    /* 背景写真（最下層） */
     #top::before {
       content: '';
       position: absolute;
-      right: -40px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: clamp(200px, 55vw, 340px);
-      height: clamp(200px, 55vw, 340px);
-      background-image: url('img/crest.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      opacity: 0.07;
+      inset: 0;
+      background-image: url('img/mikoshi-carry.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      z-index: 0;
       pointer-events: none;
     }
 
+    /* オーバーレイ（中間層） */
+    #top::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* テキスト（最上位） */
     #top .inner {
       max-width: 720px;
       margin: 0 auto;
       padding: 0 26px;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     .hero-label {
@@ -197,6 +197,42 @@
       flex-direction: column;
       gap: 12px;
     }
+
+    /* ── 手ぬぐい帯（フッター上の区切り装飾） */
+    .footer-tenugui {
+      width: 100%;
+    }
+
+    .footer-tenugui img {
+      width: 100%;
+      height: auto;
+      display: block;
+      opacity: 0.85;
+    }
+
+    /* ── 雰囲気写真ブロック ── */
+    .scene-photo {
+      margin: 24px 0 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .scene-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .scene-photo figcaption {
+      font-size: 12px;
+      color: var(--ink-light);
+      text-align: center;
+      padding: 8px 16px 10px;
+      background: var(--warm-white);
+      line-height: 1.6;
+    }
+
 
     .btn-primary {
       display: flex;
@@ -259,14 +295,6 @@
     section {
       position: relative;
       z-index: 1;
-    }
-
-    .section-block {
-      padding: 56px 0;
-    }
-
-    .section-block + .section-block {
-      border-top: 1px solid var(--border);
     }
 
     .section-label {
@@ -763,6 +791,26 @@
       margin-top: 32px;
     }
 
+    /* JOINセクション専用ボタン（ダーク背景上で視認性を上げる） */
+    .btn-join {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--blue-dark);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 16px 24px;
+      border-radius: var(--radius);
+      letter-spacing: 0.05em;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .btn-join:hover { background: #e8f4f8; transform: translateY(-1px); }
+
     .note {
       font-size: 11px;
       color: rgba(255,255,255,0.4);
@@ -826,25 +874,11 @@
 
     .footer-nav a:hover { color: rgba(255,255,255,0.85); }
 
-    /* ── separator ── */
-    .divider {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 0 0 32px;
-    }
-
-    .divider::before,
-    .divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    .divider span {
-      font-size: 14px;
-      color: var(--red);
+    .footer-copy {
+      margin-top: 16px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
     }
 
     /* ── note ── */
@@ -884,7 +918,7 @@
 <header id="page-top">
   <div class="inner">
     <p class="site-name">
-      <img src="img/crest.png" alt="" aria-hidden="true" />
+      <img src="img/logo.png" alt="" aria-hidden="true" />
       久木神社神輿会
     </p>
     <nav aria-label="主要メニュー">
@@ -908,8 +942,16 @@
       「ちょっと気になる」という方でも、安心して参加できるようにポイントをまとめました。
     </p>
     <div class="hero-cta">
-      <a href="#guide" class="btn-primary">&#128196; 初参加ガイドを見る</a>
-      <a href="#join" class="btn-secondary">&#128247; Instagramで参加連絡する</a>
+      <a href="#guide" class="btn-primary">
+        📄 初参加ガイドを見る
+      </a>
+
+      <a href="#join" class="btn-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path fill="currentColor" d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3.5A5.5 5.5 0 1 0 17.5 13 5.51 5.51 0 0 0 12 7.5zm0 2A3.5 3.5 0 1 1 8.5 13 3.5 3.5 0 0 1 12 9.5zM17.75 6.5a1.25 1.25 0 1 0 1.25 1.25 1.25 1.25 0 0 0-1.25-1.25z"/>
+        </svg>
+        Instagramで参加連絡する
+      </a>
     </div>
   </div>
 </section>
@@ -935,7 +977,7 @@
       <div class="anshin-card"><span class="check">✓</span>練習なしでOK</div>
       <div class="anshin-card"><span class="check">✓</span>見よう見まねでOK</div>
       <div class="anshin-card"><span class="check">✓</span>途中参加・退出OK</div>
-      <div class="anshin-card"><span class="check">✓</span>普段着に近い服装でもOK</div>
+      <div class="anshin-card"><span class="check">✓</span>普段着でもOK</div>
       <div class="anshin-card"><span class="check">✓</span>初参加の方も毎年います</div>
     </div>
   </div>
@@ -956,7 +998,7 @@
       <li>
         <span class="timeline-dot"><span>2</span></span>
         <div class="timeline-title">式典・準備</div>
-        <div class="timeline-body">神社での式典や準備があります。初参加の方は、神輿を担ぐ時間に合わせての参加でも大丈夫です。</div>
+        <div class="timeline-body">式典や準備があります。初参加の方は、神輿を担ぐ時間に合わせての参加でも大丈夫です。</div>
       </li>
       <li>
         <span class="timeline-dot"><span>3</span></span>
@@ -976,7 +1018,7 @@
       <li>
         <span class="timeline-dot"><span>6</span></span>
         <div class="timeline-title">直会（なおらい）</div>
-        <div class="timeline-body">宮入りのあと、簡単な打ち上げがあります。参加は自由ですので、無理のない範囲でご参加ください。</div>
+        <div class="timeline-body">宮入りのあと、簡単な打ち上げがあります。参加は自由です。無理のない範囲でご参加ください。</div>
       </li>
     </ol>
     <p class="inline-note">※ 実際の集合時間・巡行時間は、その年の案内に合わせて更新します。</p>
@@ -989,6 +1031,15 @@
     <p class="section-label">初参加ガイド</p>
     <h2>これを見れば<br />初参加でもだいたい大丈夫です</h2>
     <p style="font-size:14px;color:var(--ink-light);">「何を着ればいいの？」「担ぎ方が分からない」という疑問も、このページを見ながら、ひとつずつ分かるようにまとめています。</p>
+
+    <figure class="scene-photo">
+      <img
+        src="img/group-friendly.jpg"
+        alt="神輿会メンバーの集合写真。笑顔で和やかな雰囲気"
+        loading="lazy"
+      />
+      <figcaption>初参加の方も毎年います。こんな雰囲気です。</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -1005,10 +1056,10 @@
     </div>
 
     <h4>集合したらどうする？</h4>
-    <p style="font-size:14px;">神社に着いたら、近くのメンバーに「初参加です」と声をかけてください。その場で流れや注意点を案内します。</p>
+    <p style="font-size:14px;">神社に着いたら、近くのメンバーに「初参加です」と声をかけてください。当日の流れや注意点を案内します。</p>
 
     <h4>担ぎ方が分からなくても大丈夫？</h4>
-    <p style="font-size:14px;">大丈夫です。練習会は基本的になく、当日は周りの人の動きを見ながら参加している方がほとんどです。</p>
+    <p style="font-size:14px;">大丈夫です。練習会は基本的にありません。当日は周りの人の動きを見ながら参加している方がほとんどです。</p>
 
     <h4>ずっと担がないといけない？</h4>
     <p style="font-size:14px;">ずっと担ぎ続ける必要はありません。体力に合わせて休憩したり、途中で抜けたりできます。</p>
@@ -1032,9 +1083,9 @@
       <div class="items-card">
         <h4><span class="badge-nice">あると安心</span> 余裕があれば</h4>
         <ul>
-          <li>ポシェットや小さいバッグ</li>
-          <li>タオル</li>
-          <li>予備の飲み物（途中の休憩所で配布される飲み物をお飲みいただけます）</li>
+          <li>肩から下げられる小さな袋（ポシェットや巾着など）</li>
+          <li>手ぬぐい（頭に巻いたり首にかけたりして使います。タオルでもOKです）</li>
+          <li>予備の飲み物（休憩所で飲み物の用意がありますが、好みのものを持参してもOK。リヤカーに載せて運べます）</li>
         </ul>
       </div>
     </div>
@@ -1050,9 +1101,9 @@
     <div class="items-card" style="margin-top:16px;">
       <h4>基本の装い</h4>
       <ul>
-        <li>上半身：鯉口シャツ（白Tシャツまたは久木Tシャツでも大丈夫）</li>
-        <li>下半身：股引（動きやすい白っぽいパンツでも大丈夫）</li>
-        <li>足元：足袋（サンダルでも大丈夫）</li>
+        <li>上：鯉口シャツ（白TシャツでもOK）</li>
+        <li>下：股引（動きやすいパンツでもOK）</li>
+        <li>足：足袋（サンダルでもOK）</li>
       </ul>
       <div class="clothes-photo">
         <img
@@ -1061,7 +1112,7 @@
           class="clothes-photo-img"
           loading="lazy"
         />
-        <p class="clothes-photo-caption">実際の着用例（鯉口シャツ・股引・足袋）</p>
+        <p class="clothes-photo-caption">※写真のような格好をイメージすればOKです</p>
       </div>
     </div>
     <div class="items-card" style="margin-top:12px;">
@@ -1069,7 +1120,7 @@
       <ul>
         <li>
           Amazonで探す：
-          <a href="https://www.amazon.co.jp/s?k=%E9%AF%89%E5%8F%A3%E3%82%B7%E3%83%A3%E3%83%84+%E7%A5%AD%E3%82%8A" target="_blank" rel="noopener" style="color:var(--red);">鯉口シャツ</a>・<a href="https://www.amazon.co.jp/s?k=%E8%82%A1%E5%BC%95+%E7%A5%AD%E3%82%8A" target="_blank" rel="noopener" style="color:var(--red);">股引</a>・<a href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%82%A2%E8%B6%B3%E8%A2%8B+%E7%A5%AD%E3%82%8A" target="_blank" rel="noopener" style="color:var(--red);">足袋</a>
+          <a href="https://www.amazon.co.jp/s?k=%E9%AF%89%E5%8F%A3%E3%82%B7%E3%83%A3%E3%83%84+%E7%A5%AD%E3%82%8A" target="_blank" rel="noopener" style="color:var(--blue-dark);">鯉口シャツ</a>・<a href="https://www.amazon.co.jp/s?k=%E8%82%A1%E5%BC%95+%E7%A5%AD%E3%82%8A" target="_blank" rel="noopener" style="color:var(--blue-dark);">股引</a>・<a href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%82%A2%E8%B6%B3%E8%A2%8B+%E7%A5%AD%E3%82%8A" target="_blank" rel="noopener" style="color:var(--blue-dark);">足袋</a>
         </li>
         <li>祭礼衣専門店「みどり屋」で試着して購入する</li>
       </ul>
@@ -1108,7 +1159,7 @@
         </div>
       </div>
     </div>
-    <p class="inline-note">※ 写真のNG例・OK例を参考に、見た目を整えるだけで十分です。</p>
+    <p class="inline-note">※ 写真のNG例・OK例を参考に、見た目を整えるだけで十分です</p>
   </div>
 </section>
 
@@ -1241,7 +1292,7 @@
         <span class="join-step-num">1</span>
         <div class="join-step-body">
           <div class="join-step-title">Instagramのメッセージで連絡する</div>
-          <p>「初参加です」と送っていただければ、案内をお返しします。<br />質問だけでも大歓迎です。</p>
+          <p>「初参加です」と送っていただければ、案内をお返しします。質問だけでも大歓迎です。</p>
         </div>
       </div>
       <div class="join-step">
@@ -1254,7 +1305,12 @@
     </div>
 
     <div class="join-cta">
-      <a href="https://www.instagram.com/zushi.hisagi.jinja.mikoshi/" class="btn-primary" target="_blank" rel="noopener">&#128247; Instagramで参加連絡する</a>
+      <a href="https://www.instagram.com/zushi.hisagi.jinja.mikoshi/" class="btn-join" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path fill="currentColor" d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3.5A5.5 5.5 0 1 0 17.5 13 5.51 5.51 0 0 0 12 7.5zm0 2A3.5 3.5 0 1 1 8.5 13 3.5 3.5 0 0 1 12 9.5zM17.75 6.5a1.25 1.25 0 1 0 1.25 1.25 1.25 1.25 0 0 0-1.25-1.25z"/>
+        </svg>
+        Instagramでメッセージを送る
+      </a>
     </div>
 
   </div>
@@ -1272,17 +1328,23 @@
   </div>
 </section>
 
+<!-- ── 手ぬぐい帯（区切り装飾） ── -->
+<section class="footer-tenugui" aria-hidden="true">
+  <img src="img/tenugui-design.jpg" alt="" />
+</section>
+
 <!-- ── FOOTER ── -->
 <footer>
   <div class="footer-inner">
     <p class="footer-name">久木神社神輿会</p>
-    <p class="footer-desc">InstagramのDMからお気軽にご連絡ください。</p>
+    <p class="footer-desc">Instagramのメッセージでご連絡ください。</p>
     <ul class="footer-nav">
       <li><a href="#page-top">トップへ戻る</a></li>
       <li><a href="#guide">初参加ガイド</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#join">参加する</a></li>
     </ul>
+    <p class="footer-copy">© 2026 久木神社神輿会</p>
   </div>
 </footer>
 
