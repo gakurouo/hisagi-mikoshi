@@ -506,6 +506,61 @@
       margin: 0;
     }
 
+    /* ── 半纏ステップ内の写真 ── */
+    .happi-photo {
+      margin-top: 12px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .happi-photo-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ── Google Maps iframe レスポンシブ ── */
+    .map-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 */
+      margin-top: 16px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .map-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ── 服装写真ブロック（基本の装いカード内） ── */
+    .clothes-photo {
+      margin-top: 16px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .clothes-photo-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .clothes-photo-caption {
+      font-size: 11px;
+      color: var(--ink-light);
+      text-align: center;
+      padding: 7px 12px 8px;
+      margin: 0;
+      background: var(--warm-white);
+      opacity: 0.75;
+    }
+
     /* ── FAQ ── */
     .faq-section {
       background: var(--warm-white);
@@ -777,11 +832,11 @@
 <section id="top">
   <div class="inner">
     <p class="hero-label">はじめての方へ</p>
-    <h1>初めてでも大丈夫。<br /><em>見よう見まねで</em>参加できる神輿です。</h1>
+    <h1>初めてでも大丈夫<br /><em>見よう見まねで</em>参加できる神輿です</h1>
     <p class="hero-desc">
-      久木神社神輿会では、初参加の方も歓迎しています。
+      久木神社神輿会では、初参加の方を歓迎しています。
       練習なしでもOK、途中参加や途中休憩もOK。
-      「ちょっと気になる」という方でも、安心して参加できるように情報をまとめました。
+      「ちょっと気になる」という方でも、安心して参加できるようにポイントをまとめました。
     </p>
     <div class="hero-cta">
       <a href="#guide" class="btn-primary">&#128196; 初参加ガイドを見る</a>
@@ -820,7 +875,7 @@
       <li>
         <span class="timeline-dot"><span>2</span></span>
         <div class="timeline-title">式典・準備</div>
-        <div class="timeline-body">神社での式典や準備があります。初参加の方はメイン集合時間からの参加で大丈夫な場合が多いです。</div>
+        <div class="timeline-body">神社での式典や準備があります。初参加の方は、神輿を担ぐ時間に合わせての参加でも大丈夫です。</div>
       </li>
       <li>
         <span class="timeline-dot"><span>3</span></span>
@@ -837,6 +892,11 @@
         <div class="timeline-title">宮入り</div>
         <div class="timeline-body">神社へ戻り、最後の盛り上がる場面を迎えます。</div>
       </li>
+      <li>
+        <span class="timeline-dot"><span>6</span></span>
+        <div class="timeline-title">直会（なおらい）</div>
+        <div class="timeline-body">宮入りのあと、簡単な打ち上げがあります。参加は自由ですので、無理のない範囲でご参加ください。</div>
+      </li>
     </ol>
     <p class="inline-note">※ 実際の集合時間・巡行時間は、その年の案内に合わせて更新します。</p>
   </div>
@@ -846,8 +906,8 @@
 <section id="guide">
   <div class="section-inner">
     <p class="section-label">初参加ガイド</p>
-    <h2>これを見れば、初参加でもだいたい大丈夫です</h2>
-    <p style="font-size:14px;color:var(--ink-light);">「何を着ればいいの？」「担ぎ方が分からない」という不安を、順番に解消していきます。</p>
+    <h2>これを見れば<br />初参加でもだいたい大丈夫です</h2>
+    <p style="font-size:14px;color:var(--ink-light);">「何を着ればいいの？」「担ぎ方が分からない」という疑問も、このページを見ながら、ひとつずつ分かるようにまとめています。</p>
   </div>
 </section>
 
@@ -855,7 +915,13 @@
 <section class="white-section">
   <div class="section-inner">
     <h3><span class="num">1</span>当日の流れ</h3>
-    <p style="font-size:14px;color:var(--ink-light);">「いつ、どこに行けばいいか」が分かるだけでも安心できます。</p>
+    <p style="font-size:14px;color:var(--ink-light);">「いつ、どこに行けばいいか」が分かるだけでも、安心して参加しやすくなります。</p>
+    
+    <h4>集合場所はどこ？</h4>
+    <p style="font-size:14px;">「久木神社」に集合します。初めての方も、この場所に来ていただければ大丈夫です。</p>
+    <div class="map-wrap">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3256.0993549131504!2d139.5749661774737!3d35.30351267271145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018468e40256a61%3A0x8edb962ddd40cea8!2z5LmF5pyo56We56S-!5e0!3m2!1sja!2sjp!4v1776565997862!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
 
     <h4>集合したらどうする？</h4>
     <p style="font-size:14px;">神社に着いたら、近くのメンバーに「初参加です」と声をかけてください。その場で流れや注意点を案内します。</p>
@@ -878,8 +944,8 @@
         <h4><span class="badge-must">必須</span> 最低限これだけあればOK</h4>
         <ul>
           <li>動きやすい服</li>
-          <li>飲み物</li>
-          <li>足袋、またはサンダル（靴はNG）</li>
+          <li>足袋またはサンダル（靴はNG）</li>
+          <li>参加費 1,000円</li>
         </ul>
       </div>
       <div class="items-card">
@@ -887,16 +953,7 @@
         <ul>
           <li>ポシェットや小さいバッグ</li>
           <li>タオル</li>
-          <li>替えの飲み物</li>
-        </ul>
-      </div>
-      <div class="items-card">
-        <h4>服装の目安</h4>
-        <ul>
-          <li>鯉口シャツが基本ですが、白Tシャツでも参加可能</li>
-          <li>股引が基本ですが、動きやすいパンツでも大丈夫な場合あり</li>
-          <li>半纏は貸出がある場合があります</li>
-          <li>帯がなくても参加できる場合があります</li>
+          <li>予備の飲み物（途中の休憩所で配布される飲み物をお飲みいただけます。）</li>
         </ul>
       </div>
     </div>
@@ -904,50 +961,73 @@
   </div>
 </section>
 
-<!-- ── 3. 半纏の着方 ── -->
-<section class="white-section">
-  <div class="section-inner">
-    <h3><span class="num">3</span>半纏の着方</h3>
-    <p style="font-size:14px;color:var(--ink-light);">半纏を借りられる場合は、きれいに着られると見た目もよく、動きやすさも増します。</p>
-    <div class="happi-steps">
-      <div class="happi-step">
-        <h4>前の合わせ方</h4>
-        <p>半纏は「右前」で着ます。自分の右側の布が内側に入る形にすると、胸元の文字がきれいに見えます。</p>
-      </div>
-      <div class="happi-step">
-        <h4>帯の高さ</h4>
-        <p>帯は高すぎず、腰骨あたりを目安に巻くと、動きやすく見た目も整います。</p>
-      </div>
-      <div class="happi-step">
-        <h4>脇の余り</h4>
-        <p>半纏が大きめの場合は、脇の余った布を内側に折り込んで帯で留めると、すっきり着られます。</p>
-      </div>
-    </div>
-    <p class="inline-note">※ 半纏の着方の写真や図解をここに追加するとさらに親切です。</p>
-  </div>
-</section>
-
-<!-- ── 4. 格好を揃えたい方へ ── -->
+<!-- ── 3. 格好を揃えたい方へ ── -->
 <section>
   <div class="section-inner">
-    <h3><span class="num">4</span>神輿の格好を揃えたい方へ</h3>
+    <h3><span class="num">3</span>神輿の格好を揃えたい方へ</h3>
     <p style="font-size:14px;color:var(--ink-light);">初参加は手持ちの服でも大丈夫ですが、「せっかくなら揃えたい」という方のために。</p>
     <div class="items-card" style="margin-top:16px;">
       <h4>基本の装い</h4>
       <ul>
-        <li>上半身：鯉口シャツ（なければ白Tシャツでも可）</li>
-        <li>下半身：股引（なければ動きやすい白っぽいパンツでも可）</li>
-        <li>足元：エア足袋（なければサンダルでも可）</li>
+        <li>上半身：鯉口シャツ（なければ白Tシャツまたは久木神社Tシャツで大丈夫）</li>
+        <li>下半身：股引（なければ動きやすい白っぽいパンツで大丈夫）</li>
+        <li>足元：足袋（なければサンダルで大丈夫）</li>
       </ul>
+      <div class="clothes-photo">
+        <img
+          src="img/koikuchi01.jpg"
+          alt="鯉口シャツ・股引・足袋の着用例"
+          class="clothes-photo-img"
+          loading="lazy"
+        />
+        <p class="clothes-photo-caption">実際の着用例（鯉口シャツ・股引・足袋）</p>
+      </div>
     </div>
     <div class="items-card" style="margin-top:12px;">
       <h4>購入方法の例</h4>
       <ul>
-        <li><a href="https://www.amazon.co.jp/s?k=%E9%AF%89%E5%8F%A3%E3%82%B7%E3%83%A3%E3%83%84+%E7%A5%AD%E3%82%8A" target="_blank" rel="noopener" style="color:var(--red);">Amazonで鯉口シャツを探す</a></li>
-        <li>祭礼衣専門店で試着して購入する</li>
+        <li>
+          Amazonで探す：
+          <a href="https://www.amazon.co.jp/s?k=%E9%AF%89%E5%8F%A3%E3%82%B7%E3%83%A3%E3%83%84+%E7%A5%AD%E3%82%8A" target="_blank" rel="noopener" style="color:var(--red);">鯉口シャツ</a>・<a href="https://www.amazon.co.jp/s?k=%E8%82%A1%E5%BC%95+%E7%A5%AD%E3%82%8A" target="_blank" rel="noopener" style="color:var(--red);">股引</a>・<a href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%82%A2%E8%B6%B3%E8%A2%8B+%E7%A5%AD%E3%82%8A" target="_blank" rel="noopener" style="color:var(--red);">足袋</a>
+        </li>
+        <li>祭礼衣専門店「みどり屋」で試着して購入する</li>
       </ul>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3257.2617987209164!2d139.66755987576954!3d35.27461667272124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60183f8cafd3a95b%3A0xfcdd743dca665acb!2z44iy44G_44Gp44KK5bGL!5e0!3m2!1sja!2sjp!4v1776573261814!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </div>
-    <p class="inline-note">※ お近くの専門店情報はInstagramのDMでもご案内できます。</p>
+  </div>
+</section>
+
+<!-- ── 4. 半纏の着方 ── -->
+<section class="white-section">
+  <div class="section-inner">
+    <h3><span class="num">4</span>半纏の着方</h3>
+    <p style="font-size:14px;color:var(--ink-light);">半纏と帯の貸し出しを行っています。半纏は、きれいに着られると見た目もよく、動きやすさも増します。難しく考えなくて大丈夫ですが、以下のポイントだけ押さえておくと安心です。</p>
+    <div class="happi-steps">
+      <div class="happi-step">
+        <h4>前の合わせ方</h4>
+        <p>半纏は「右前」で着ます。文字がきれいに読めるように、右側の布を内側に重ねるのがポイントです。</p>
+        <div class="happi-photo">
+          <img src="img/hanten01.png" alt="前の合わせ方：NG例（文字が重なっている）とOK例の比較" class="happi-photo-img" loading="lazy" />
+        </div>
+      </div>
+      <div class="happi-step">
+        <h4>帯の高さ</h4>
+        <p>帯は腰骨あたりを目安に巻くと、動きやすく見た目も整います。高すぎると苦しく、低すぎるとずれやすくなります。</p>
+        <div class="happi-photo">
+          <img src="img/hanten02.png" alt="帯の高さ：NG例（帯が高すぎる）とOK例の比較" class="happi-photo-img" loading="lazy" />
+        </div>
+      </div>
+      <div class="happi-step">
+        <h4>脇の余り</h4>
+        <p>半纏が大きめの場合は、脇に余った布を内側に折り込んで帯で留めると、すっきり着られます。</p>
+        <div class="happi-photo">
+          <img src="img/hanten03.png" alt="脇の余り：NG例（シワ・もたつき）とOK例の比較" class="happi-photo-img" loading="lazy" />
+        </div>
+      </div>
+    </div>
+    <p class="inline-note">※ 写真のNG例・OK例を参考に、見た目を整えるだけで十分です。</p>
   </div>
 </section>
 
@@ -1021,7 +1101,15 @@
           <span class="faq-q-text">神輿の衣装は持っていないとダメですか？</span>
           <span class="faq-icon">＋</span>
         </button>
-        <div class="faq-a">持っていなくても大丈夫です。半纏の貸出がある場合もあります。</div>
+        <div class="faq-a">持っていなくても大丈夫です。半纏の貸出を行っています。</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-text">最初に買うとしたら、何を買うとよいですか？</span>
+          <span class="faq-icon">＋</span>
+        </button>
+        <div class="faq-a">まずは足袋がおすすめです。中でも、底にクッションが入った「エア足袋」を選ぶと、長時間でも足が痛くなりにくく安心です。</div>
       </div>
 
       <div class="faq-item">
@@ -1029,7 +1117,7 @@
           <span class="faq-q-text">何を持っていけばいいですか？</span>
           <span class="faq-icon">＋</span>
         </button>
-        <div class="faq-a">飲み物と、動きやすい服装があれば大丈夫です。手拭いや飲み物が用意される場合もあります。</div>
+        <div class="faq-a">動きやすい服装と参加費1,000円があれば大丈夫です。飲み物は用意されています。</div>
       </div>
 
       <div class="faq-item">
@@ -1037,7 +1125,7 @@
           <span class="faq-q-text">知り合いがいなくても大丈夫ですか？</span>
           <span class="faq-icon">＋</span>
         </button>
-        <div class="faq-a">大丈夫です。初参加の方もおり、和やかな雰囲気です。</div>
+        <div class="faq-a">大丈夫です。例年ほかにも初参加の方がいて、和やかな雰囲気です。</div>
       </div>
 
       <div class="faq-item">
@@ -1045,7 +1133,7 @@
           <span class="faq-q-text">怖い人や厳しいルールはありますか？</span>
           <span class="faq-icon">＋</span>
         </button>
-        <div class="faq-a">基本的にフレンドリーな雰囲気です。安全のための簡単なルールだけ守っていただければ大丈夫です。</div>
+        <div class="faq-a">フレンドリーな雰囲気です。安全のための簡単なルールだけ守っていただければ大丈夫です。</div>
       </div>
 
       <div class="faq-item">
@@ -1085,9 +1173,9 @@
     </div>
 
     <div class="join-cta">
-      <a href="https://www.instagram.com/久木神社神輿会" class="btn-primary" target="_blank" rel="noopener">&#128247; Instagramで参加連絡する</a>
+      <a href="https://www.instagram.com/zushi.hisagi.jinja.mikoshi/" class="btn-primary" target="_blank" rel="noopener">&#128247; Instagramで参加連絡する</a>
     </div>
-    <p class="note">※ InstagramのURLを実際のアカウントURLに差し替えてください。</p>
+
   </div>
 </section>
 
