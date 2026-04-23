@@ -87,6 +87,8 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      text-decoration: none;
+      cursor: pointer;
     }
 
     .site-name img {
@@ -665,6 +667,29 @@
       opacity: 0.75;
     }
 
+    /* ── 持ち物カード内の補足写真 ── */
+    .item-photo {
+      margin-top: 14px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .item-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .item-photo figcaption {
+      font-size: 11px;
+      color: var(--ink-light);
+      text-align: center;
+      padding: 6px 12px 8px;
+      background: var(--warm-white);
+      line-height: 1.5;
+    }
+
     /* ── FAQ ── */
     .faq-section {
       background: var(--blue-light);
@@ -932,10 +957,10 @@
 <!-- ── HEADER ── -->
 <header id="page-top">
   <div class="inner">
-    <p class="site-name">
+    <a href="#page-top" class="site-name" aria-label="トップへ戻る">
       <img src="img/logo.png" alt="" aria-hidden="true" />
       久木神社神輿会
-    </p>
+    </a>
     <nav aria-label="主要メニュー">
       <ul>
         <li><a href="#guide">ガイド</a></li>
@@ -1003,7 +1028,7 @@
   <div class="section-inner">
     <p class="section-label">当日の流れ</p>
     <h2>当日のざっくり流れ</h2>
-    <p style="font-size:14px;color:var(--ink-light);">細かいことを覚えなくても大丈夫です。何時ごろ行って、どんな流れなのかをざっくり把握すれば参加しやすくなります。</p>
+    <p style="font-size:14px;color:var(--ink-light);">当日の流れは、ざっくりこんな感じです。細かいことは当日でも大丈夫です。</p>
     <ol class="timeline">
       <li>
         <span class="timeline-dot"><span>1</span></span>
@@ -1018,7 +1043,7 @@
       <li>
         <span class="timeline-dot"><span>3</span></span>
         <div class="timeline-title">神輿スタート</div>
-        <div class="timeline-body">神輿が動き出したら、周りの人の動きを見ながら参加できます。</div>
+        <div class="timeline-body">神輿が動き出したら、周りの人の動きを見ながら参加できます。掛け声やリズムに合わせて、みんなで担ぎます。</div>
       </li>
       <li>
         <span class="timeline-dot"><span>4</span></span>
@@ -1027,7 +1052,7 @@
       </li>
       <li>
         <span class="timeline-dot"><span>5</span></span>
-        <div class="timeline-title">宮入り</div>
+        <div class="timeline-title">宮入（みやいり）</div>
         <div class="timeline-body">神社へ戻り、最後の盛り上がる場面を迎えます。</div>
       </li>
       <li>
@@ -1061,8 +1086,8 @@
 <!-- ── 1. 当日の流れ Q&A ── -->
 <section class="white-section">
   <div class="section-inner">
-    <h3><span class="num">1</span>当日の流れ</h3>
-    <p style="font-size:14px;color:var(--ink-light);">「いつ、どこに行けばいいか」が分かるだけでも、安心して参加しやすくなります。</p>
+    <h3><span class="num">1</span>当日の参加のしかた</h3>
+    <p style="font-size:14px;color:var(--ink-light);">まずは「どこに行けばいいか」だけ分かればOKです。</p>
     
     <h4>集合場所はどこ？</h4>
     <p style="font-size:14px;">「久木神社」に集合します。初めての方も、この場所に来ていただければ大丈夫です。</p>
@@ -1094,6 +1119,10 @@
           <li>足袋またはサンダル（靴はNG）</li>
           <li>参加費 1,000円</li>
         </ul>
+        <figure class="item-photo">
+          <img src="img/kifuda.jpg" alt="参加費でもらえる木札と手ぬぐい" loading="lazy" />
+          <figcaption>参加費でお渡しする木札と手ぬぐい（当日そのまま使えます）</figcaption>
+        </figure>
       </div>
       <div class="items-card">
         <h4><span class="badge-nice">あると安心</span> 余裕があれば</h4>
@@ -1117,7 +1146,7 @@
       <h4>基本の装い</h4>
       <ul>
         <li>上：鯉口シャツ（白TシャツでもOK）</li>
-        <li>下：股引（動きやすいパンツでもOK）</li>
+        <li>下：股引（短い半股引タイプや動きやすいパンツでもOK）</li>
         <li>足：足袋（サンダルでもOK）</li>
       </ul>
       <div class="clothes-photo">
@@ -1337,7 +1366,8 @@
     <p class="section-label">神輿会について</p>
     <h2>久木神社神輿会について</h2>
     <div class="about-box">
-      久木神社神輿会は、地域の祭礼を支え、神輿を通じて人と人をつなぐ活動を行っています。<br />
+      久木神社神輿会は、地域の祭礼を支え、神輿を通じて人と人とをつなぐ活動を行っています。<br />
+      お神輿は、神様を乗せて地域を巡るものとされており、無事や幸せを願う意味が込められています。地域のみんなで楽しみながら担いでいるお祭りです。<br />
       はじめての方も、地域の方も、久しぶりの方も歓迎しています。
     </div>
   </div>
@@ -1396,9 +1426,17 @@
       setTimeout(() => {
         const target = document.getElementById('join');
         if (!target) return;
-        const top = target.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+        const top = target.getBoundingClientRect().top + window.scrollY;
         window.scrollTo({ top, behavior: 'smooth' });
       }, 150);
+    });
+  });
+
+  // ロゴ・サイト名 および「トップへ戻る」のスクロール処理
+  document.querySelectorAll('a[href="#page-top"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
 </script>
