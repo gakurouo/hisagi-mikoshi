@@ -37,13 +37,6 @@
 
     html { scroll-behavior: smooth; }
 
-    /* 各セクションだけヘッダー分ずらす */
-    #guide,
-    #faq,
-    #join {
-      scroll-margin-top: 80px;
-    }
-
     body {
       font-family: var(--sans);
       background: var(--parchment);
@@ -151,7 +144,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.56);
+      background: rgba(0,0,0,0.45);
       z-index: 1;
       pointer-events: none;
     }
@@ -422,13 +415,13 @@
     .anshin-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      gap: 12px;
       margin-top: 24px;
     }
 
     .anshin-card {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.17);
+      border: 1px solid rgba(255,255,255,0.32);
       border-radius: 16px;
       padding: 14px 16px;
       display: flex;
@@ -436,18 +429,28 @@
       gap: 10px;
       font-size: 13px;
       font-weight: 500;
-      transition: background 0.2s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+
+    @media (hover: hover) {
+      .anshin-card:hover {
+        background: rgba(255,255,255,0.26);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+      }
     }
 
     .anshin-card .check {
-      width: 22px; height: 22px;
-      background: rgba(255,255,255,0.25);
+      width: 24px; height: 24px;
+      background: rgba(255,255,255,0.38);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      font-size: 11px;
+      font-size: 12px;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
     }
 
     .anshin-card:last-child {
@@ -926,11 +929,8 @@
 </head>
 <body>
 
-<!-- ページ最上部のアンカー -->
-<div id="page-top"></div>
-
 <!-- ── HEADER ── -->
-<header>
+<header id="page-top">
   <div class="inner">
     <p class="site-name">
       <img src="img/logo.png" alt="" aria-hidden="true" />
@@ -1378,6 +1378,27 @@
         item.classList.add('open');
         btn.setAttribute('aria-expanded', 'true');
       }
+    });
+  });
+
+  // #join アンカーリンクのスクロール位置ズレ修正
+  // 【なぜこれで直るか】
+  // LINEなどのアプリ内ブラウザでは初回表示時に画像読み込みや
+  // レイアウト確定が遅れるため、クリック直後にgetBoundingClientRect()
+  // を呼ぶと未確定の位置を返しズレる。
+  // 150ms遅延を入れることでレイアウト確定後の正確な位置を取得でき、
+  // ヘッダー高さ（80px）を引いた正しい位置へスクロールできる。
+  const HEADER_OFFSET = 80;
+
+  document.querySelectorAll('a[href="#join"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      setTimeout(() => {
+        const target = document.getElementById('join');
+        if (!target) return;
+        const top = target.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }, 150);
     });
   });
 </script>
