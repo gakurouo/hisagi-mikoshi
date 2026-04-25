@@ -5,6 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>久木神社神輿会 | 初参加の不安を全部消すサイト</title>
   <meta name="description" content="久木神社神輿会の初参加ガイド。はじめて神輿を担ぐ方に向けて、当日の流れ、服装、持ち物、よくある質問、参加方法をまとめています。" />
+
+  <!-- ① ヒーロー画像のpreload（LCP改善） -->
+  <link rel="preload" as="image" href="img/mikoshi-carry.jpg" fetchpriority="high" />
+
+  <!-- ③ Open Graph / SNSシェア用メタタグ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="久木神社神輿会 | 初めてでも大丈夫。見よう見まねで参加できる神輿です" />
+  <meta property="og:description" content="練習なしでOK、途中参加もOK。はじめて神輿を担ぐ方に向けて、当日の流れ・服装・持ち物をまとめました。" />
+  <meta property="og:image" content="https://hisagi-mikoshi.pages.dev/img/og.jpg" />
+  <meta property="og:image:width" content="1730" />
+  <meta property="og:image:height" content="909" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="久木神社神輿会 | 初めてでも大丈夫。見よう見まねで参加できる神輿です" />
+  <meta name="twitter:description" content="練習なしでOK、途中参加もOK。はじめて神輿を担ぐ方に向けて、当日の流れ・服装・持ち物をまとめました。" />
+  <meta name="twitter:image" content="https://hisagi-mikoshi.pages.dev/img/og.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -1578,5 +1595,119 @@
     });
   });
 </script>
+<!-- ── FAQ構造化データ（JSON-LD） ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "練習しないと参加できませんか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "大丈夫です。練習はありません。はじめて参加される方の多くが、練習なしで当日参加しています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "担ぎ方が分からないのですが…",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "その場で自然に分かるので大丈夫です。周りの人の動きを見ながら、見よう見まねで参加できます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ずっと担ぎ続けないといけませんか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "いいえ。途中で交代・休憩できます。疲れたら無理せず休んでください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "途中参加や途中退出はできますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "できます。ご自身の都合に合わせて参加してください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "体力に自信がないのですが大丈夫ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "問題ありません。体力に合わせて無理のない範囲で参加できます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "どんな服装で行けばいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "動きやすい服装でOKです。鯉口シャツや股引が基本ですが、最初から完璧に揃える必要はありません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "足元は何を履けばいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "足袋またはサンダルがおすすめです。靴は危険防止のためNGです。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "神輿の衣装は持っていないとダメですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "持っていなくても大丈夫です。半纏の貸出を行っています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "最初に買うとしたら、何を買うとよいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "まずは足袋がおすすめです。中でも、底にクッションが入った「エア足袋」を選ぶと、長時間でも足が痛くなりにくく安心です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "何を持っていけばいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "動きやすい服装と参加費1,000円があれば大丈夫です。飲み物は用意されています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "知り合いがいなくても大丈夫ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "大丈夫です。例年ほかにも初参加の方がいて、和やかな雰囲気です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "怖い人や厳しいルールはありますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "フレンドリーな雰囲気です。安全のための簡単なルールだけ守っていただければ大丈夫です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "事前準備や清掃は参加しないとダメですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "任意参加です。参加すると雰囲気が分かるのでおすすめですが、必須ではありません。"
+      }
+    }
+  ]
+}
+</script>
+
 </body>
 </html>
