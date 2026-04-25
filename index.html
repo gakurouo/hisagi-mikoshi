@@ -689,6 +689,86 @@
       line-height: 1.5;
     }
 
+    /* ── 気軽に参加したい方へ（独立セクション） ── */
+    .tshirt-section {
+      background: var(--blue-light);
+    }
+
+    /* ── Tシャツカード（items-cardベース＋左ボーダー強調） ── */
+    .tshirt-card {
+      border-left: 4px solid var(--blue-mid);
+      margin-top: 16px;
+    }
+
+    .tshirt-card h4 {
+      color: var(--blue-dark);
+    }
+
+    /* ── 特別感カード（tshirt-card専用） ── */
+    .special-card {
+      background: linear-gradient(135deg, #fff 0%, var(--blue-light) 100%);
+      box-shadow: 0 4px 16px rgba(63,142,168,0.12);
+    }
+
+    /* ── 地図導線ボタン ── */
+    .btn-map {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 14px;
+      padding: 12px 20px;
+      background: var(--blue);
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: var(--radius);
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 3px 10px rgba(63,142,168,0.3);
+    }
+
+    .btn-map:hover {
+      background: var(--blue-dark);
+      transform: translateY(-1px);
+    }
+
+    /* ── みどり屋カード（補助導線：とちぎやより格下げ） ── */
+    .midoriya-card {
+      background: #f5f5f3;
+      border: 1px solid #ddd;
+      box-shadow: none;
+    }
+
+    .midoriya-card h4 {
+      color: var(--ink-light);
+      font-size: 14px;
+    }
+
+    /* ── 補助CTAボタン（アウトライン系） ── */
+    .btn-map-secondary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 14px;
+      padding: 11px 20px;
+      background: transparent;
+      color: var(--blue-dark);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1.5px solid var(--blue-dark);
+      border-radius: var(--radius);
+      letter-spacing: 0.03em;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-map-secondary:hover {
+      background: var(--blue-light);
+    }
+
     /* ── FAQ ── */
     .faq-section {
       background: var(--blue-light);
@@ -926,6 +1006,12 @@
       margin-top: 16px;
     }
 
+    .note-box-heading {
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
     .inline-note {
       font-size: 12px;
       color: var(--ink-light);
@@ -1121,6 +1207,14 @@
           <figcaption>参加費でお渡しする木札と手ぬぐい（当日そのまま使えます）</figcaption>
         </figure>
       </div>
+    </div>
+
+    <div class="note-box">
+      <p class="note-box-heading">⚠️ 足元についての注意</p>
+      靴は、ほかの方の足を踏んでしまった際に危険なためNGです。足袋またはサンダルでご参加ください。
+    </div>
+
+    <div class="items-grid" style="margin-top:16px;">
       <div class="items-card">
         <h4><span class="badge-nice">あると安心</span> 余裕があれば</h4>
         <ul>
@@ -1130,7 +1224,30 @@
         </ul>
       </div>
     </div>
-    <div class="note-box">⚠️ 靴は、ほかの方の足を踏んでしまったときに危険なためNGです。足袋またはサンダルで参加してください。</div>
+  </div>
+</section>
+
+<!-- ── 気軽に参加したい方へ ── -->
+<section class="tshirt-section">
+  <div class="section-inner">
+    <h3>まずはTシャツから揃えたい方へ</h3>
+    <div class="items-card tshirt-card special-card" style="margin-top:20px;">
+      <h4>👕 オリジナルTシャツで参加する</h4>
+      <p style="font-size:13px;color:var(--ink-light);margin-bottom:12px;">久木神社神輿会のオリジナルTシャツを着ていれば、そのまま担いで参加できます。</p>
+      <figure class="item-photo">
+        <img src="img/T-shirts.jpg" alt="久木神社神輿会オリジナルTシャツ" loading="lazy" />
+      </figure>
+      <p style="font-size:13px;color:var(--ink-light);margin-top:14px;margin-bottom:10px;">オリジナルTシャツは、地域の豆腐店「とちぎや」で販売しています。</p>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3256.2397562468414!2d139.56993437747343!3d35.30002367271291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018468bdd951c25%3A0xa199be232ffeed62!2z44Go44GG44G15bel5oi_44Go44Gh44GO44KE!5e0!3m2!1sja!2sjp!4v1777093091406!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <a
+        href="https://www.google.com/maps/place/%E3%81%A8%E3%81%86%E3%81%B5%E3%81%A6%E3%82%93%E3%81%A8%E3%81%A1%E3%81%8E%E3%82%84/@35.3000237,139.5699344,17z"
+        class="btn-map"
+        target="_blank"
+        rel="noopener"
+      >📍 とちぎやの場所を見る</a>
+    </div>
   </div>
 </section>
 
@@ -1156,18 +1273,29 @@
         <p class="clothes-photo-caption">※写真のような格好をイメージすればOKです</p>
       </div>
     </div>
-    <div class="items-card" style="margin-top:12px;">
-      <h4>購入方法の例</h4>
+    <div class="items-card midoriya-card" style="margin-top:12px;">
+      <h4>🏪 みどり屋で揃える</h4>
+      <p style="font-size:13px;color:var(--ink-light);margin-bottom:12px;">祭礼用品をしっかり揃えたい方は、専門店「みどり屋」での購入がおすすめです。実際に試着しながら選びたい方に向いています。</p>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3257.2617987209164!2d139.66755987576954!3d35.27461667272124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60183f8cafd3a95b%3A0xfcdd743dca665acb!2z44iy44G_44Gp44KK5bGL!5e0!3m2!1sja!2sjp!4v1776573261814!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=みどり屋+逗子"
+        class="btn-map-secondary"
+        target="_blank"
+        rel="noopener"
+      >📍 みどり屋の場所を見る</a>
+    </div>
+
+    <div class="items-card midoriya-card" style="margin-top:12px;">
+      <h4>🛒 ネットで揃える</h4>
+      <p style="font-size:13px;color:var(--ink-light);margin-bottom:12px;">忙しくてお店に行く時間がない方や、事前に準備しておきたい方は、ネットで揃えることもできます。</p>
       <ul>
         <li>
           Amazonで探す：
           <a href="https://www.amazon.co.jp/s?k=%E9%AF%89%E5%8F%A3%E3%82%B7%E3%83%A3%E3%83%84+%E7%A5%AD%E3%82%8A" target="_blank" rel="noopener" style="color:var(--blue-dark);">鯉口シャツ</a>・<a href="https://www.amazon.co.jp/s?k=%E8%82%A1%E5%BC%95+%E7%A5%AD%E3%82%8A" target="_blank" rel="noopener" style="color:var(--blue-dark);">股引</a>・<a href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%82%A2%E8%B6%B3%E8%A2%8B+%E7%A5%AD%E3%82%8A" target="_blank" rel="noopener" style="color:var(--blue-dark);">足袋</a>
         </li>
-        <li>祭礼衣専門店「みどり屋」で試着して購入する</li>
       </ul>
-      <div class="map-wrap">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3257.2617987209164!2d139.66755987576954!3d35.27461667272124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60183f8cafd3a95b%3A0xfcdd743dca665acb!2z44iy44G_44Gp44KK5bGL!5e0!3m2!1sja!2sjp!4v1776573261814!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
     </div>
   </div>
 </section>
