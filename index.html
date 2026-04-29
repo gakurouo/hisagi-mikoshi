@@ -576,6 +576,11 @@
       font-weight: 700;
     }
 
+    .items-card li > span {
+      flex: 1;
+      min-width: 0;
+    }
+
     .badge-must {
       display: inline-block;
       background: var(--blue);
@@ -640,6 +645,9 @@
       width: 100%;
       height: auto;
       display: block;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     }
 
     /* ── Google Maps iframe レスポンシブ ── */
@@ -1199,15 +1207,15 @@
       <li>
         <span class="timeline-dot"><span>5</span></span>
         <div class="timeline-title">宮入り</div>
-        <div class="timeline-body">神社へ戻り、最後の盛り上がる場面を迎えます。</div>
+        <div class="timeline-body">神社へ戻り、神輿が境内に入る最後の場面です。盛り上がりのピークを迎えます。</div>
       </li>
       <li>
         <span class="timeline-dot"><span>6</span></span>
-        <div class="timeline-title">直会（なおらい）</div>
-        <div class="timeline-body">宮入りのあと、簡単な打ち上げがあります。参加は自由です。無理のない範囲でご参加ください。</div>
+        <div class="timeline-title">打ち上げ</div>
+        <div class="timeline-body">宮入りのあと、境内で打ち上げ（直会）があります。にぎやかな雰囲気の中で行われます。参加は自由です。無理のない範囲でご参加ください。</div>
       </li>
     </ol>
-    <p class="inline-note">※ 実際の集合時間・巡行時間は、その年の案内に合わせて更新します。</p>
+    <p class="inline-note">※実際の集合時間・出発時間は、その年の案内に合わせて更新します。</p>
   </div>
 </section>
 
@@ -1257,7 +1265,7 @@
 
     <h4>ずっと担がないといけない？</h4>
     <p style="font-size:14px;">ずっと担ぎ続ける必要はありません。体力に合わせて休憩したり、途中で抜けたりできます。</p>
-    <p style="font-size:14px;">※抜けるときは、いきなり離れず、後ろの人に軽く合図（腰あたりをトントンと叩く）してから抜けてください。</p>
+    <p style="font-size:14px;">※抜けるときは、いきなり離れず、後ろの人に軽く合図してから抜けてください（腰あたりをトントンと叩く）</p>
   </div>
 </section>
 
@@ -1270,9 +1278,9 @@
       <div class="items-card">
         <h4><span class="badge-must">必須</span> 最低限これだけあればOK</h4>
         <ul>
-          <li>動きやすい白い服</li>
-          <li>足袋またはサンダル（靴はNG）</li>
-          <li>参加費 1,000円</li>
+          <li><span><strong>動きやすい白い服</strong><br>白系の落ち着いた色の服でご参加ください。白いTシャツでもOKです</span></li>
+          <li><span><strong>足袋またはサンダル</strong><br>※靴での参加はできません</span></li>
+          <li><span><strong>参加費 1,000円</strong><br>※現金での受付となります。1,000円ちょうどご用意いただけると助かります</span></li>
         </ul>
         <figure class="item-photo">
           <img src="img/kifuda.jpg" alt="参加費でもらえる木札と手ぬぐい" width="2048" height="2048" loading="lazy" />
@@ -1290,9 +1298,9 @@
       <div class="items-card">
         <h4><span class="badge-nice">あると安心</span> 余裕があれば</h4>
         <ul>
-          <li>手ぬぐい（頭に巻いたり首にかけたりして使います。タオルでもOKです）</li>
-          <li>肩から下げられる小さな袋（ポシェットや巾着など）</li>
-          <li>予備の飲み物（休憩所で飲み物の用意がありますが、好みのものを持参してもOK。リヤカーに載せて運べます）</li>
+          <li><span><strong>手ぬぐい</strong><br>頭に巻いたり首にかけたりして使います。タオルでもOKです</span></li>
+          <li><span><strong>肩から下げられる小さな袋</strong><br>ポシェットや巾着など</span></li>
+          <li><span><strong>予備の飲み物</strong><br>休憩所で飲み物の用意がありますが、好みのものを持参してもOK。リヤカーに載せて運べます</span></li>
         </ul>
       </div>
     </div>
@@ -1304,8 +1312,16 @@
   <div class="section-inner">
     <h3>まずはTシャツから揃えたい方へ</h3>
     <div class="items-card tshirt-card special-card" style="margin-top:20px;">
-      <h4>👕 オリジナルTシャツで参加する</h4>
-      <p style="font-size:13px;color:var(--ink-light);margin-bottom:12px;">久木神社神輿会のオリジナルTシャツを着ていれば、そのまま担いで参加できます。</p>
+      <h4>👕 白のオリジナルTシャツで参加する</h4>
+        <p style="font-size:13px;color:var(--ink-light);margin-bottom:8px;">
+        久木神社神輿会のオリジナルTシャツを着て参加することもできます。
+        </p>
+        <p style="font-size:13px;color:var(--ink-light);margin-bottom:8px;">
+        白いTシャツであればそのまま参加できます。
+        </p>
+        <p style="font-size:13px;color:var(--ink-light);margin-bottom:12px;">
+        色つきのTシャツの場合は、宮入り後の境内で担ぐことができます。
+        </p>
       <figure class="item-photo">
         <img src="img/T-shirts.jpg" alt="久木神社神輿会オリジナルTシャツ" width="385" height="385" loading="lazy" />
       </figure>
@@ -1331,20 +1347,20 @@
     <div class="items-card" style="margin-top:16px;">
       <h4>基本の装い</h4>
       <ul>
-        <li>上：鯉口シャツ（白TシャツでもOK）</li>
-        <li>下：股引（短い半股引タイプや動きやすいパンツでもOK）</li>
+        <li>上：鯉口シャツ（白いTシャツでもOK）</li>
+        <li>下：半股引（動きやすい短パンでもOK）</li>
         <li>足：足袋（サンダルでもOK）</li>
       </ul>
       <div class="clothes-photo">
         <img
-          src="img/koikuchi01.jpg"
-          alt="鯉口シャツ・股引・足袋の着用例"
+          src="img/koikuchi.png"
+          alt="鯉口シャツ・半股引・足袋の着用例"
           class="clothes-photo-img"
           width="1133"
           height="1133"
           loading="lazy"
         />
-        <p class="clothes-photo-caption">※写真のような格好をイメージすればOKです</p>
+        <p class="clothes-photo-caption">写真のような白を基調とした格好が基本です</p>
       </div>
     </div>
     <div class="items-card midoriya-card" style="margin-top:12px;">
@@ -1382,26 +1398,27 @@
   <div class="section-inner">
     <h3><span class="num">4</span>半纏の着方</h3>
     <p style="font-size:14px;color:var(--ink-light);">半纏と帯の貸し出しを行っています。<br />半纏は、きれいに着られると見た目もよく、動きやすさも増します。難しく考えなくて大丈夫ですが、以下のポイントだけ押さえておくと安心です。</p>
+    <p class="inline-note">※写真のNG例・OK例を参考に、見た目を整えるだけで十分です</p>
     <div class="happi-steps">
       <div class="happi-step">
         <h4>前の合わせ方</h4>
         <p>半纏は「右前」で着ます。文字がきれいに読めるように、右側の布を内側に重ねるのがポイントです。</p>
         <div class="happi-photo">
-          <img src="img/hanten01.png" alt="前の合わせ方：NG例（文字が重なっている）とOK例の比較" class="happi-photo-img" width="716" height="400" loading="lazy" />
+          <img src="img/hanten-front-overlap-compare.jpg" alt="前の合わせ方：NG例（文字が重なっている）とOK例の比較" class="happi-photo-img" width="716" height="400" loading="lazy" />
         </div>
       </div>
       <div class="happi-step">
         <h4>帯の高さ</h4>
         <p>帯は腰骨あたりを目安に巻くと、動きやすく見た目も整います。高すぎると苦しく、低すぎるとずれやすくなります。</p>
         <div class="happi-photo">
-          <img src="img/hanten02.png" alt="帯の高さ：NG例（帯が高すぎる）とOK例の比較" class="happi-photo-img" width="716" height="400" loading="lazy" />
+          <img src="img/hanten-belt-height-compare.jpg" alt="帯の高さ：NG例（帯が高すぎる）とOK例の比較" class="happi-photo-img" width="716" height="400" loading="lazy" />
         </div>
       </div>
       <div class="happi-step">
         <h4>脇の余り</h4>
         <p>半纏が大きめの場合は、脇に余った布を内側に折り込んで帯で留めると、すっきり着られます。</p>
         <div class="happi-photo">
-          <img src="img/hanten03.png" alt="脇の余り：NG例（シワ・もたつき）とOK例の比較" class="happi-photo-img" width="716" height="400" loading="lazy" />
+          <img src="img/hanten-side-fold-compare.jpg" alt="脇の余り：NG例（シワ・もたつき）とOK例の比較" class="happi-photo-img" width="716" height="400" loading="lazy" />
         </div>
       </div>
     </div>
@@ -1416,8 +1433,6 @@
 
       <p style="margin-top:16px;color:var(--ink-light);font-size:13px;">当日も周りのメンバーがフォローしますので、無理に覚えてこなくても大丈夫です。</p>
     </div>
-
-    <p class="inline-note">※ 写真のNG例・OK例を参考に、見た目を整えるだけで十分です</p>
   </div>
 </section>
 
@@ -1435,7 +1450,7 @@
           <span class="faq-q-text">練習しないと参加できませんか？</span>
           <span class="faq-icon">＋</span>
         </button>
-        <div class="faq-a">大丈夫です。練習はありません。はじめて参加される方の多くが、練習なしで当日参加しています。</div>
+        <div class="faq-a">大丈夫です。練習は基本的にありません。はじめて参加される方の多くが、練習なしで当日参加しています。</div>
       </div>
 
       <div class="faq-item">
@@ -1475,7 +1490,7 @@
           <span class="faq-q-text">どんな服装で行けばいいですか？</span>
           <span class="faq-icon">＋</span>
         </button>
-        <div class="faq-a">動きやすい服装でOKです。鯉口シャツや股引が基本ですが、最初から完璧に揃える必要はありません。</div>
+        <div class="faq-a">動きやすい服装でOKです。白系の落ち着いた色の服でご参加ください。</div>
       </div>
 
       <div class="faq-item">
@@ -1491,7 +1506,7 @@
           <span class="faq-q-text">神輿の衣装は持っていないとダメですか？</span>
           <span class="faq-icon">＋</span>
         </button>
-        <div class="faq-a">持っていなくても大丈夫です。半纏の貸出を行っています。</div>
+        <div class="faq-a">持っていなくても大丈夫です。半纏や帯の貸出を行っています。</div>
       </div>
 
       <div class="faq-item">
@@ -1564,7 +1579,7 @@
         <span class="join-step-num">3</span>
         <div class="join-step-body">
           <div class="join-step-title">事前の準備から参加する</div>
-          <p>祭礼前の準備（境内の草刈りや神輿の掃除）に参加いただくこともできます。このときに、担ぎ方や当日の流れについて説明を受けることができます。</p>
+          <p>祭礼前の準備（境内の草刈りやお神輿の掃除）に参加いただくこともできます。このときに担ぎ方や当日の流れについて説明を受けることができます。</p>
         </div>
       </div>
       <div class="join-step">
@@ -1681,7 +1696,7 @@
       "name": "練習しないと参加できませんか？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "大丈夫です。練習はありません。はじめて参加される方の多くが、練習なしで当日参加しています。"
+        "text": "大丈夫です。練習は基本的にありません。はじめて参加される方の多くが、練習なしで当日参加しています。"
       }
     },
     {
@@ -1721,7 +1736,7 @@
       "name": "どんな服装で行けばいいですか？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "動きやすい服装でOKです。鯉口シャツや股引が基本ですが、最初から完璧に揃える必要はありません。"
+        "text": "動きやすい服装でOKです。白系の落ち着いた色の服でご参加ください。"
       }
     },
     {
@@ -1737,7 +1752,7 @@
       "name": "神輿の衣装は持っていないとダメですか？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "持っていなくても大丈夫です。半纏の貸出を行っています。"
+        "text": "持っていなくても大丈夫です。半纏や帯の貸出を行っています。"
       }
     },
     {
