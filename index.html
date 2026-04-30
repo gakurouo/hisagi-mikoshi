@@ -924,6 +924,10 @@
     .faq-item.open .faq-a { display: block; }
 
     /* ── JOIN ── */
+    #join {
+      scroll-margin-top: 16px; /* ヘッダー(56px) - section-inner padding(52px) + 余白(12px) */
+    }
+
     .join-section {
       background: linear-gradient(160deg, var(--dark-bg) 0%, var(--dark-bg2) 100%);
       color: #fff;
@@ -1415,7 +1419,7 @@
       <p style="font-size:13px;color:var(--ink-light);margin-bottom:12px;">「ロゴ入りの鯉口シャツ」は市販されていません。例年5月ごろ神輿会で取りまとめて発注しています。その機会に申し込むことで、ロゴ入りのものを揃えることができます。</p>
       <p style="font-size:13px;color:var(--ink-light);margin-bottom:12px;">まずは白い無地の服装で参加し、あとからロゴ入りのものを揃える方も多いです。</p>
       <div class="clothes-photo">
-        <img src="img/koikuchi-logo-mikoshi-carry.jpg" alt="ロゴ入り鯉口シャツで神輿を担ぐ様子" class="clothes-photo-img" loading="lazy" />
+        <img src="img/koikuchi-logo-mikoshi-carry.jpg" alt="ロゴ入り鯉口シャツで神輿を担ぐ様子" class="clothes-photo-img" width="406" height="405" loading="lazy" />
         <p class="clothes-photo-caption">ロゴ入り鯉口シャツの着用イメージ<br>※申込時期やサイズ・価格等の詳細は、神輿会からの案内をご確認ください</p>
       </div>
     </div>
@@ -1699,17 +1703,24 @@
   // を呼ぶと未確定の位置を返しズレる。
   // 150ms遅延を入れることでレイアウト確定後の正確な位置を取得でき、
   // ヘッダー高さ（80px）を引いた正しい位置へスクロールできる。
-  const HEADER_OFFSET = 80;
+  const HEADER_OFFSET = 16; // scroll-margin-top と統一
 
   document.querySelectorAll('a[href="#join"]').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
-      setTimeout(() => {
+      const doScroll = () => {
         const target = document.getElementById('join');
         if (!target) return;
-        const top = target.getBoundingClientRect().top + window.scrollY;
+        const top = target.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
         window.scrollTo({ top, behavior: 'smooth' });
-      }, 150);
+      };
+      // ページ全体がロード済みなら即実行、未完了なら load 後に実行
+      // → LINE ブラウザでの画像ロード遅延によるレイアウトシフトを防ぐ
+      if (document.readyState === 'complete') {
+        setTimeout(doScroll, 150);
+      } else {
+        window.addEventListener('load', () => setTimeout(doScroll, 50), { once: true });
+      }
     });
   });
 
