@@ -633,6 +633,12 @@
       margin: 0;
     }
 
+    /* ── lazy画像の領域確保（古いWebViewでwidth/height属性が効かない環境の対策） ── */
+    .happi-photo-img   { aspect-ratio: 861 / 632; }
+    .clothes-photo-img { aspect-ratio: 1 / 1; }
+    .item-photo img    { aspect-ratio: 1 / 1; }
+    .scene-photo img   { aspect-ratio: 1 / 1; }
+
     /* ── 半纏ステップ内の写真 ── */
     .happi-photo {
       margin-top: 12px;
@@ -1437,21 +1443,21 @@
         <h4>前の合わせ方</h4>
         <p>半纏は「右前」で着ます。文字がきれいに読めるように、右側の布を内側に重ねるのがポイントです。</p>
         <div class="happi-photo">
-          <img src="img/hanten-front-overlap-compare.jpg" alt="前の合わせ方：NG例（文字が重なっている）とOK例の比較" class="happi-photo-img" width="716" height="400" loading="lazy" />
+          <img src="img/hanten-front-overlap-compare.jpg" alt="前の合わせ方：NG例（文字が重なっている）とOK例の比較" class="happi-photo-img" width="861" height="632" loading="lazy" />
         </div>
       </div>
       <div class="happi-step">
         <h4>帯の高さ</h4>
         <p>帯は腰骨あたりを目安に巻くと、動きやすく見た目も整います。高すぎると苦しく、低すぎるとずれやすくなります。</p>
         <div class="happi-photo">
-          <img src="img/hanten-belt-height-compare.jpg" alt="帯の高さ：NG例（帯が高すぎる）とOK例の比較" class="happi-photo-img" width="716" height="400" loading="lazy" />
+          <img src="img/hanten-belt-height-compare.jpg" alt="帯の高さ：NG例（帯が高すぎる）とOK例の比較" class="happi-photo-img" width="861" height="632" loading="lazy" />
         </div>
       </div>
       <div class="happi-step">
         <h4>脇の余り</h4>
         <p>半纏が大きめの場合は、脇に余った布を内側に折り込んで帯で留めると、すっきり着られます。</p>
         <div class="happi-photo">
-          <img src="img/hanten-side-fold-compare.jpg" alt="脇の余り：NG例（シワ・もたつき）とOK例の比較" class="happi-photo-img" width="716" height="400" loading="lazy" />
+          <img src="img/hanten-side-fold-compare.jpg" alt="脇の余り：NG例（シワ・もたつき）とOK例の比較" class="happi-photo-img" width="861" height="632" loading="lazy" />
         </div>
       </div>
     </div>
@@ -1709,17 +1715,19 @@
     link.addEventListener('click', e => {
       e.preventDefault();
       const doScroll = () => {
-        const target = document.getElementById('join');
-        if (!target) return;
-        const top = target.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
-        window.scrollTo({ top, behavior: 'smooth' });
+        // rAF でペイント完了後に計算 → レイアウト未確定状態での誤計算を防ぐ
+        requestAnimationFrame(() => {
+          const target = document.getElementById('join');
+          if (!target) return;
+          const top = target.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+          window.scrollTo({ top, behavior: 'smooth' });
+        });
       };
-      // ページ全体がロード済みなら即実行、未完了なら load 後に実行
-      // → LINE ブラウザでの画像ロード遅延によるレイアウトシフトを防ぐ
       if (document.readyState === 'complete') {
         setTimeout(doScroll, 150);
       } else {
-        window.addEventListener('load', () => setTimeout(doScroll, 50), { once: true });
+        // load 後 400ms 待機：LINE ブラウザの遅いレイアウト確定に対応
+        window.addEventListener('load', () => setTimeout(doScroll, 400), { once: true });
       }
     });
   });
