@@ -789,20 +789,25 @@
 
     .online-link-buttons a {
       display: block;
-      padding: 10px 14px;
-      border: 1px solid var(--blue-mid);
+      padding: 12px 14px;
+      border: 1.5px solid var(--blue-mid);
       border-radius: 10px;
       text-decoration: none;
       text-align: center;
       font-size: 13px;
       font-weight: 700;
-      color: var(--blue-mid);
-      background: #fff;
-      transition: background 0.2s, color 0.2s;
+      color: var(--blue-dark);
+      background: var(--blue-light);
+      transition: background 0.2s, transform 0.1s;
     }
 
     .online-link-buttons a:hover {
-      background: var(--blue-light);
+      background: #d0e8f2;
+    }
+
+    .online-link-buttons a:active {
+      background: #bcd8e8;
+      transform: scale(0.98);
     }
 
     /* ── みどり屋カード（補助導線：とちぎやより格下げ） ── */
@@ -1215,7 +1220,7 @@
         <div class="timeline-body">宮入りのあと、境内で打ち上げ（直会）があります。にぎやかな雰囲気の中で行われます。参加は自由です。無理のない範囲でご参加ください。</div>
       </li>
     </ol>
-    <p class="inline-note">※実際の集合時間・出発時間は、その年の案内に合わせて更新します。</p>
+    <p class="inline-note">※実際の集合時間・出発時間は、その年の案内に合わせて更新します</p>
   </div>
 </section>
 
@@ -1234,7 +1239,7 @@
         height="406"
         loading="lazy"
       />
-      <figcaption>初参加の方も毎年います。こんな雰囲気です。</figcaption>
+      <figcaption>初参加の方も毎年います。こんな雰囲気です</figcaption>
     </figure>
   </div>
 </section>
@@ -1265,7 +1270,7 @@
 
     <h4>ずっと担がないといけない？</h4>
     <p style="font-size:14px;">ずっと担ぎ続ける必要はありません。体力に合わせて休憩したり、途中で抜けたりできます。</p>
-    <p style="font-size:14px;">※抜けるときは、いきなり離れず、後ろの人に軽く合図してから抜けてください（腰あたりをトントンと叩く）</p>
+    <p class="inline-note">※抜けるときは、いきなり離れず、後ろの人に軽く合図してから抜けてください（腰あたりをトントンと叩く）</p>
   </div>
 </section>
 
@@ -1324,8 +1329,8 @@
         </p>
       <figure class="item-photo">
         <img src="img/T-shirts.jpg" alt="久木神社神輿会オリジナルTシャツ" width="385" height="385" loading="lazy" />
+        <figcaption>オリジナルTシャツは、地域の豆腐店「とちぎや」で販売しています</figcaption>
       </figure>
-      <p style="font-size:13px;color:var(--ink-light);margin-top:14px;margin-bottom:10px;">オリジナルTシャツは、地域の豆腐店「とちぎや」で販売しています。</p>
       <div class="map-wrap">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3256.2397562468414!2d139.56993437747343!3d35.30002367271291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018468bdd951c25%3A0xa199be232ffeed62!2z44Go44GG44G15bel5oi_44Go44Gh44GO44KE!5e0!3m2!1sja!2sjp!4v1777093091406!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
@@ -1360,7 +1365,7 @@
           height="1133"
           loading="lazy"
         />
-        <p class="clothes-photo-caption">写真のような白を基調とした格好が基本です</p>
+        <p class="clothes-photo-caption">白を基調とした格好が基本です</p>
       </div>
     </div>
     <div class="items-card midoriya-card" style="margin-top:12px;">
@@ -1381,12 +1386,12 @@
       <h4>🛒 ネットで揃える</h4>
       <p style="font-size:13px;color:var(--ink-light);margin-bottom:12px;">忙しくてお店に行く時間がない方や、事前に準備しておきたい方は、ネットで揃えることもできます。</p>
       <div class="online-links">
-        <p>ネットで探すこともできます：</p>
+        <p>ネットで探す（タップで検索できます）</p>
         <div class="online-link-buttons">
-          <a href="https://www.amazon.co.jp/s?k=%E9%AF%89%E5%8F%A3%E3%82%B7%E3%83%A3%E3%83%84+%E7%A5%AD%E3%82%8A" target="_blank" rel="noopener">鯉口シャツ</a>
-          <a href="https://www.amazon.co.jp/s?k=%E8%82%A1%E5%BC%95+%E7%A5%AD%E3%82%8A" target="_blank" rel="noopener">股引</a>
-          <a href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%82%A2%E8%B6%B3%E8%A2%8B+%E7%A5%AD%E3%82%8A" target="_blank" rel="noopener">足袋（エア足袋）</a>
-          <p class="link-note">※「エア足袋」は動きやすく、初参加の方にもおすすめです</p>
+          <a href="https://www.amazon.co.jp/s?k=%E9%AF%89%E5%8F%A3%E3%82%B7%E3%83%A3%E3%83%84+%E7%A5%AD%E3%82%8A" target="_blank" rel="noopener">鯉口シャツ 🔍</a>
+          <a href="https://www.amazon.co.jp/s?k=%E5%8D%8A%E8%82%A1%E5%BC%95+%E7%A5%AD%E3%82%8A" target="_blank" rel="noopener">半股引 🔍</a>
+          <a href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%82%A2%E8%B6%B3%E8%A2%8B+%E7%A5%AD%E3%82%8A" target="_blank" rel="noopener">足袋（エア足袋） 🔍</a>
+          <p class="inline-note">※「エア足袋」は動きやすく、初参加の方にもおすすめです</p>
         </div>
       </div>
     </div>
@@ -1408,7 +1413,7 @@
 <section class="parchment-section">
   <div class="section-inner">
     <h3><span class="num">4</span>半纏の着方</h3>
-    <p style="font-size:14px;color:var(--ink-light);">半纏と帯の貸し出しを行っています。<br />半纏は、きれいに着られると見た目もよく、動きやすさも増します。難しく考えなくて大丈夫ですが、以下のポイントだけ押さえておくと安心です。</p>
+    <p style="font-size:14px;color:var(--ink-light);">半纏の貸し出しを行っています。<br>半纏は、きれいに着られると見た目もよく、動きやすさも増します。難しく考えなくて大丈夫ですが、以下のポイントだけ押さえておくと安心です。</p>
     <p class="inline-note">※写真のNG例・OK例を参考に、見た目を整えるだけで十分です</p>
     <div class="happi-steps">
       <div class="happi-step">
@@ -1436,13 +1441,18 @@
 
     <div class="happi-step" style="margin-top:12px;">
       <h4>帯の締め方（参考）</h4>
-      <p>帯の締め方にはいくつかの方法がありますが、当日は周りの人を見ながら結べば大丈夫です。より詳しく知りたい方は、こちらも参考にしてください。</p>
-      <a href="https://matsurijuku.com/obi/" target="_blank" rel="noopener" class="reference-link" style="display:inline-block;margin-top:10px;font-size:13px;color:var(--blue-dark);text-decoration:underline;text-underline-offset:3px;">帯の締め方の解説を見る →</a>
+      <p>半纏とあわせて帯の貸し出しも行っています。</p>
+      <p>いずれも数や種類に限りがあるため、ご希望の方は事前にお知らせください。</p>
+      <p class="inline-note">※受け取りは「とちぎや」での事前対応となります</p>
+      <p style="margin-top:16px;">帯の締め方にはいくつかの方法があります。当日は周りの人を見ながら結べば大丈夫です。詳しく知りたい方は、こちらも参考にしてください。</p>
+      <div class="online-link-buttons" style="margin-top:10px;">
+        <a href="https://matsurijuku.com/obi/" target="_blank" rel="noopener">帯の締め方を見る →</a>
+      </div>
+      <p style="margin-top:16px;">「自分の帯を用意してみたい」という方は、逗子市役所近くの「亀岡八幡宮」で月1回開催されている骨董市でも手頃に購入できます。こちらも参考にしてください。</p>
+      <div class="online-link-buttons" style="margin-top:10px;">
+        <a href="https://www.zushitrip.com/spot/detail_402.html" target="_blank" rel="noopener">骨董市の開催日時を見る →</a>
+      </div>
 
-      <p style="margin-top:16px;">半纏とあわせて帯の貸し出しも行っています。<br />数や種類に限りがあるため、ご希望の方は事前にお知らせください。<br />（受け取りは「とちぎや」での事前対応となります）<br /><br />「自分の帯を用意してみたい」という方は、逗子市役所近くの「亀岡八幡宮」で月1回開催されている骨董市でも手頃に購入できます（1,000円程度）。</p>
-      <a href="https://www.zushitrip.com/spot/detail_402.html" target="_blank" rel="noopener" class="reference-link" style="display:inline-block;margin-top:10px;font-size:13px;color:var(--blue-dark);text-decoration:underline;text-underline-offset:3px;">骨董市の情報を見る →</a>
-
-      <p style="margin-top:16px;color:var(--ink-light);font-size:13px;">当日も周りのメンバーがフォローしますので、無理に覚えてこなくても大丈夫です。</p>
     </div>
   </div>
 </section>
